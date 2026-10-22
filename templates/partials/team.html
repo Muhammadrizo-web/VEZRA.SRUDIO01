@@ -1,0 +1,11 @@
+<div class="team lane" data-stagger>
+{% for p in D.team %}
+{% set name = person_name(p) %}
+  <div class="member{% if p.get('contact') %} pm{% endif %}">
+    <div class="ph-photo dots-light{% if p.photo %} has-img{% endif %}">{% if p.photo %}<img src="img/{{ p.photo }}" alt="{{ name or p.role }}" width="480" height="600" loading="lazy" decoding="async">{% else %}<span>{{ p.mono }}</span>{% endif %}</div>
+    {% if name %}<h3>{{ name }}</h3><div class="role">{{ p.role }}</div>{% else %}<h3>{{ p.role }}</h3>{% endif %}
+    <p>{{ p.about }}</p>
+    {% if p.get('contact') %}<span class="pm-badge"><i></i>Ваш контакт</span>{% endif %}
+  </div>
+{% endfor %}
+</div>

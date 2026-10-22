@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as m %}
+{% block main %}
+<section class="phero screen">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Сайты для клиник</span></nav>
+    <div class="phero-grid">
+      <div data-in="1"><div class="kicker">Для клиник и стоматологий</div><h1>Сайт клиники, который отвечает пациенту <em>до звонка</em></h1><p class="sub">Пациент сравнивает клиники по сайтам и выбирает ту, где сразу понятно: кто лечит, сколько стоит и как записаться.</p>
+        <div class="cta-row"><a class="btn btn-green" {{ tg(page.ctx) }}><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Обсудить сайт клиники</a></div>
+        <div class="reply"><i></i>Отвечаем в течение часа в рабочее время</div></div>
+      <div class="mini-terms" data-in="3">
+  <div class="dots-dark"><small>Лендинг</small><b><span data-roll>1–3</span> <i>дня</i></b></div>
+  <div class="dots-dark"><small>Сайт</small><b><span data-roll>3–6</span> <i>дней</i></b></div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Структура</div><h2 data-reveal>Пять вещей, которые пациент ищет на сайте клиники</h2></div><p class="lead">Если чего-то нет, он уходит к соседней клинике. Поэтому всё это есть в структуре по умолчанию.</p></div>
+    <div class="checks lane" data-stagger><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.7.8 2.7 2.5 3 5.2"/></svg></span><h3>Врачи</h3><p>Фото, специализация и опыт. <b>Пациент выбирает врача, а не здание.</b></p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1l8 8a1.5 1.5 0 0 1 0 2.1l-6.9 6.9a1.5 1.5 0 0 1-2.1 0l-8.1-7.9Z"/><circle cx="8.5" cy="8.5" r="1.6"/></svg></span><h3>Цены</h3><p>Хотя бы «от» по основным услугам. Меньше звонков с одним вопросом «сколько стоит».</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Адрес и дорога</h3><p>Карта, ориентир, парковка и часы работы на каждой странице.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><h3>Лицензия</h3><p>Лицензия и документы клиники на отдельной странице. Это вопрос доверия.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Запись</h3><p>Кнопка записи в Telegram и телефон — в шапке и на каждом экране.</p></div><div class="check cta dots-dark"><div><h3>Ваш случай сложнее?</h3><p style="margin-top:12px">Несколько филиалов, онлайн-запись, сайт на русском и узбекском — обсудим в Telegram.</p></div><div><a class="btn btn-white btn-sm" {{ tg(page.ctx) }}><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать</a></div></div></div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap concept">
+    <div class="mock" data-reveal role="img" aria-label="Концепт сайта стоматологии">
+  <div class="bar"><i></i><i></i><i></i><u>клиника.uz</u></div>
+  <div class="mk">
+    <div class="mk-top"><span>Стоматология · концепт</span><nav><span>Услуги</span><span>Врачи</span><span>Цены</span><span>Контакты</span></nav><span class="mb">Записаться</span></div>
+    <div class="mk-hero"><div><h4>Стоматология рядом с домом</h4><p>Врачи, цены и запись — на одной странице</p><span class="mb">Записаться в Telegram</span></div><div class="mk-img"></div></div>
+    <div class="mk-h">Врачи</div>
+    <div class="mk-row">
+      <div class="mk-card"><div class="av"></div><b>Терапевт</b><span>стаж 12 лет</span></div>
+      <div class="mk-card"><div class="av"></div><b>Ортодонт</b><span>стаж 9 лет</span></div>
+      <div class="mk-card"><div class="av"></div><b>Хирург</b><span>стаж 15 лет</span></div>
+    </div>
+    <div class="mk-h">Цены</div>
+    <div class="mk-price"><span>Консультация</span><b>от 100 000 сум</b></div>
+    <div class="mk-price"><span>Профгигиена</span><b>от 350 000 сум</b></div>
+    <div class="mk-price"><span>Лечение кариеса</span><b>от 400 000 сум</b></div>
+  </div>
+</div>
+    <div><span class="badge">Концепт</span><h2 data-reveal>Так может выглядеть сайт стоматологии</h2><p>Это концепт студии, а не работа для реального клиента: имена и цены — пример. Первый реальный кейс клиники появится здесь — с разрешения клиники.</p></div>
+  </div>
+</section>
+
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Состав сайта</div><h2 data-reveal>Пять страниц, <em>которых хватает</em></h2></div><p class="lead">Корпоративный сайт клиники — 3–6 дней{% if price('corp') %}, {{ price('corp') }}{% endif %}. На русском и, если нужно, на узбекском.</p></div>
+    <div class="pages" data-stagger><div><b>Главная</b><span>Услуги, врачи, запись</span></div><div><b>Услуги и цены</b><span>По направлениям</span></div><div><b>Врачи</b><span>Карточка каждого врача</span></div><div><b>О клинике</b><span>Лицензия, фото, оборудование</span></div><div><b>Контакты</b><span>Карта, часы, запись</span></div></div>
+  </div>
+</section>
+{% include 'partials/guarantee.html' %}
+{{ m.final_card('Расскажите о клинике&nbsp;— назовём <em>срок и цену.</em>', page.ctx) }}
+{% endblock %}

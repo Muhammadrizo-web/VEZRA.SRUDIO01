@@ -1,0 +1,157 @@
+{
+  "_note": "Единый источник данных сайта. null = данных пока нет: блок скрывается или показывается запасной текст.",
+  "studio": {
+    "name": "Vezra Studio",
+    "city": "Ташкент",
+    "since": 2025,
+    "telegram": null,
+    "phone": null,
+    "email": null,
+    "instagram": "vezra_studio",
+    "domain": null,
+    "hours": "в рабочее время"
+  },
+  "guarantee": {
+    "per_day": 10,
+    "max": 30
+  },
+  "terms": {
+    "landing": "1–3",
+    "landing_unit": "дня",
+    "corp": "3–6",
+    "corp_unit": "дней"
+  },
+  "prices": {
+    "landing": null,
+    "corp": null,
+    "redesign": null,
+    "logo": null,
+    "identity": null,
+    "content": null
+  },
+  "team": [
+    {
+      "key": "founder",
+      "first": "Абдуллох",
+      "last": null,
+      "role": "Основатель · дизайн",
+      "about": "Отвечает за визуал и качество каждого проекта.",
+      "photo": null,
+      "mono": "А"
+    },
+    {
+      "key": "pm",
+      "first": null,
+      "last": null,
+      "role": "Проект-менеджер",
+      "about": "Отвечает вам в Telegram и держит срок.",
+      "photo": null,
+      "mono": "PM",
+      "contact": true
+    },
+    {
+      "key": "dev",
+      "first": null,
+      "last": null,
+      "role": "Разработчик",
+      "about": "Вёрстка, скорость загрузки, запуск на домене.",
+      "photo": null,
+      "mono": "D"
+    },
+    {
+      "key": "smm",
+      "first": null,
+      "last": null,
+      "role": "SMM-специалист",
+      "about": "Контент и соцсети, которые ведут на сайт.",
+      "photo": null,
+      "mono": "S"
+    }
+  ],
+  "cases": {
+    "samarcande": {
+      "days": "4–5",
+      "url": null,
+      "lang": "FR",
+      "year": 2026
+    },
+    "maxipharm": {
+      "days": null,
+      "url": "https://www.maxipharm.uz",
+      "lang": "RU · EN · UZ",
+      "year": 2026,
+      "pages": "Главная и 6 страниц услуг, форма заявки, FAQ и карта проезда — на трёх языках."
+    },
+    "xizmattop": {
+      "days": null,
+      "url": null,
+      "langs": 4,
+      "year": 2026
+    }
+  },
+  "brands": [
+    {
+      "name": "MAXI PHARM EXPERT",
+      "title": "MaxiPharm Expert",
+      "niche": "Регистрация фармпрепаратов",
+      "tag": "Логотип + сайт",
+      "logo": null
+    },
+    {
+      "name": "MATA COFFEE",
+      "title": "MATA Coffee",
+      "niche": "Кофейня",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "RETRO 90",
+      "title": "Retro 90",
+      "niche": "Ресторан европейской и ретро-кухни",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "SODIQ MARKET",
+      "title": "Sodiq Market",
+      "niche": "Магазин на Uzum Market",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "ID PREMIUM",
+      "title": "ID Premium",
+      "niche": "Премиальные двери и мебель",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "FENIX CONSULTING",
+      "title": "Fenix Consulting",
+      "niche": "Поступление в вузы Малайзии",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "SALES INCUBATOR",
+      "title": "Sales Incubator",
+      "niche": "Школа специалистов по продажам",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "SAFARGO",
+      "title": "Safargo",
+      "niche": "Таксопарк, подключение к Яндекс Go",
+      "tag": "Логотип",
+      "logo": null
+    },
+    {
+      "name": "UNITY POWER FITNESS",
+      "title": "Unity Power Fitness",
+      "niche": "Фитнес-клуб «Birlik Kuchi»",
+      "tag": "Айдентика",
+      "logo": null
+    }
+  ]
+}

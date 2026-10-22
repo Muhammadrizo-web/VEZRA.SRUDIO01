@@ -1,0 +1,53 @@
+{% macro arrow_link(href, text, cls='link-arrow') %}<a class="{{ cls }}" href="{{ href }}">{{ text }} {{ icon('arrow') }}</a>{% endmacro %}
+
+{% macro ext_link(url, text='Открыть сайт') %}<a class="link-arrow link-ext" href="{{ url }}" target="_blank" rel="noopener">{{ text }} {{ icon('ext') }}</a>{% endmacro %}
+
+{# Окно браузера со скриншотом. long=True — длинный скрин, листается при наведении #}
+{% macro shot(img, alt, host='', cls='', long=False, w=1200, h=750, eager=False) %}
+<div class="shot {{ cls }}{% if long %} is-long{% endif %}"{% if long %} data-scroll-shot{% endif %}>
+  <div class="bar"><i></i><i></i><i></i><u>{{ host }}</u></div>
+  <div class="scr"><img src="img/{{ img }}" alt="{{ alt }}" width="{{ w }}" height="{{ h }}"{% if not eager %} loading="lazy"{% endif %} decoding="async"></div>
+</div>
+{% endmacro %}
+
+{% macro phone(img, alt) %}
+<div class="shot phone"><div class="scr"><img src="img/{{ img }}" alt="{{ alt }}" width="600" height="1298" loading="lazy" decoding="async"></div></div>
+{% endmacro %}
+
+{# Обложка кейса, пока нет скриншотов #}
+{% macro cover(case, host='') %}
+<div class="shot cover dots-dark">
+  <div class="bar"><i></i><i></i><i></i><u>{{ host }}</u></div>
+  <div class="cover-in"><small>{{ case.scope }}</small><b>{{ case.title.split(' ')[0] }}{% if ' ' in case.title %}<em>{{ case.title.split(' ', 1)[1] }}</em>{% endif %}</b></div>
+</div>
+{% endmacro %}
+
+{% macro case_visual(case, eager=False) %}
+{% if case.img %}{{ shot(case.img ~ '-long.webp', 'Сайт ' ~ case.title ~ ' — главная страница', host=case.hostname, long=True, w=1200, h=case.long_h, eager=eager) }}{% else %}{{ cover(case, host=case.hostname) }}{% endif %}
+{% endmacro %}
+
+{% macro case_facts(case, with_year=False) %}
+<div class="facts">
+  <div>Объём<b>{{ case.scope }}</b></div>
+  {% if case.days %}<div>Срок<b>{{ case.days }} дней</b></div>{% endif %}
+  {% if case.get('lang') %}<div>Язык<b>{{ case.lang }}</b></div>{% endif %}
+  {% if case.get('langs') %}<div>Языки<b>{{ case.langs }}</b></div>{% endif %}
+  {% if with_year %}<div>Год<b>{{ case.year }}</b></div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro final_card(h, ctx) %}
+<section class="sec-tight screen final-screen">
+  <div class="wrap">
+    <div class="final-card dots-dark" id="contact" data-spot>
+      <h2 data-reveal>{{ h }}</h2>
+      <div class="final-side" data-reveal>
+        <p>Пришлите ссылку на ваш Instagram или текущий сайт — в ответ назовём срок и цену. Проект-менеджер отвечает в течение часа.</p>
+        <a class="btn btn-white" {{ tg(ctx) }}>{{ icon('tg') }}Написать в Telegram</a>
+        {% if tg_handle() %}<div class="tg">Наш Telegram: <button type="button" class="copy" data-copy="{{ tg_handle() }}" aria-label="Скопировать ник {{ tg_handle() }}">{{ tg_handle() }}{{ icon('copy') }}</button></div>{% endif %}
+        {% if S.phone %}<div class="tg">Или позвоните: <span class="sel">{{ S.phone }}</span></div>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

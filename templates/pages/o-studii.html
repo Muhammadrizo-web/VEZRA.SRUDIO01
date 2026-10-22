@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as m %}
+{% block main %}
+<section class="phero screen">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>О студии</span></nav>
+    <div class="kicker" data-in="1">О студии</div>
+    <h1 data-in="2">Сайты, брендинг и контент. <em>С&nbsp;2025&nbsp;года.</em></h1>
+    <p class="sub" data-in="3">Нас четверо: дизайнер, разработчик, SMM-специалист и проект-менеджер. Работаем с малым и средним бизнесом в Узбекистане.</p>
+    <div class="facts about-facts" data-in="4"><div>Сайтов запустили<b data-count="3">3</b></div><div>Брендов<b data-count="9">9</b></div><div>Человек в команде<b data-count="4">4</b></div><div>Работаем с<b>{{ S.since }}</b></div></div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Принципы</div><h2 data-reveal>Как мы <em>держим слово</em></h2></div></div>
+    <div class="principles lane" data-stagger><div class="principle"><h3>Не обещаем лишнего</h3><p>Ни по цене, ни по срокам, ни по возможностям. Если задачу нельзя сделать в срок, говорим это до договора.</p></div><div class="principle"><h3>Всё в договоре</h3><p>Состав работ, цена и срок фиксируются до старта. Вы знаете, что получите и когда.</p></div><div class="principle"><h3>Отвечаем за срок</h3><p>Сорвали по нашей вине — минус {{ G.per_day }}% за каждый день, до {{ G.max }}%, и бесплатные доработки.</p></div><div class="principle"><h3>Говорим о проблемах первыми</h3><p>Если видим проблему за рамками задачи, говорим о ней, даже когда нас не спрашивали.</p></div></div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Команда</div><h2 data-reveal>Кто делает ваш проект</h2></div><p class="lead">Вы общаетесь с одним человеком — проект-менеджером. Он ведёт проект от первого сообщения до запуска.</p></div>
+    {% include 'partials/team.html' %}
+  </div>
+</section>
+<section class="sec-tight screen" id="process">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Как работаем</div><h2 data-reveal>Четыре шага от сообщения <em>до&nbsp;запуска</em></h2></div></div>
+    {% include 'partials/steps.html' %}
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap concept">
+    <div class="svc dots-dark" style="padding:44px 40px"><div class="n">Контент</div><h3>3–4 поста в неделю</h3><ul><li>Шаблоны по брендбуку<span>один раз</span></li><li>Карусели и сторис<span>каждую неделю</span></li><li>Проверка перед публикацией<span>всегда</span></li></ul><div class="foot">Так мы ведём <a href="https://instagram.com/{{ S.instagram }}" target="_blank" rel="noopener"><b>свой Instagram @{{ S.instagram }}</b></a>.</div></div>
+    <div><div class="kicker">Своя система</div><h2 data-reveal>Контент по шаблонам, <em>а не с нуля</em></h2><p>Карусели и сторис собираются из наших шаблонов по брендбуку клиента. Ваш SMM-специалист получает готовые визуалы в фирменном стиле, а не черновики.</p></div>
+  </div>
+</section>
+{{ m.final_card('Расскажите о&nbsp;задаче&nbsp;— назовём <em>срок и цену.</em>', page.ctx) }}
+{% endblock %}

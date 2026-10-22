@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as m %}
+{% block main %}
+<section class="phero screen">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Сайты для кафе и ресторанов</span></nav>
+    <div class="phero-grid">
+      <div data-in="1"><div class="kicker">Для кафе и ресторанов</div><h1>Сайт кафе, где гость сразу видит <em>меню, адрес и бронь</em></h1><p class="sub">Гость выбирает заведение с телефона, часто по пути. Ему нужны меню с ценами, фото зала и маршрут — без PDF и поиска по сторис.</p>
+        <div class="cta-row"><a class="btn btn-green" {{ tg(page.ctx) }}><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Обсудить сайт заведения</a></div>
+        <div class="reply"><i></i>Отвечаем в течение часа в рабочее время</div></div>
+      <div class="mini-terms" data-in="3">
+  <div class="dots-dark"><small>Лендинг</small><b><span data-roll>1–3</span> <i>дня</i></b></div>
+  <div class="dots-dark"><small>Сайт</small><b><span data-roll>3–6</span> <i>дней</i></b></div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Структура</div><h2 data-reveal>Пять вещей, которые гость ищет на сайте кафе</h2></div><p class="lead">Всё это есть в структуре по умолчанию. Остальное добавляем под ваше заведение.</p></div>
+    <div class="checks lane" data-stagger><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg></span><h3>Меню с ценами</h3><p>Текстом, а не PDF: <b>открывается быстро и читается с телефона.</b></p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-2.5h6L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><h3>Фото зала и блюд</h3><p>Гость приходит за атмосферой. Покажите её до визита.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Адрес, маршрут, часы</h3><p>Кнопка маршрута и часы работы на первом экране.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Бронь и банкет</h3><p>Бронь стола и заявка на мероприятие через Telegram или телефон.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><h3>Доставка</h3><p>Ссылки на службы доставки, с которыми вы уже работаете.</p></div><div class="check cta dots-dark"><div><h3>Несколько заведений?</h3><p style="margin-top:12px">Общий сайт с отдельной страницей для каждой точки — обсудим в Telegram.</p></div><div><a class="btn btn-white btn-sm" {{ tg(page.ctx) }}><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать</a></div></div></div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap concept">
+    <div class="mock" data-reveal role="img" aria-label="Концепт сайта кофейни">
+  <div class="bar"><i></i><i></i><i></i><u>кофейня.uz</u></div>
+  <div class="mk cafe">
+    <div class="mk-top"><span>Кофейня · концепт</span><nav><span>Меню</span><span>О нас</span><span>Банкеты</span><span>Контакты</span></nav><span class="mb">Маршрут</span></div>
+    <div class="mk-hero"><div><h4>Кофе и завтраки до полудня</h4><p>Открыто сегодня · адрес на карте</p><span class="mb">Забронировать стол</span></div><div class="mk-img"></div></div>
+    <div class="mk-h">Меню</div>
+    <div class="mk-tabs"><span>Кофе</span><span>Завтраки</span><span>Десерты</span></div>
+    <div class="mk-row">
+      <div class="mk-card"><div class="av"></div><b>Капучино</b><span>28 000 сум</span></div>
+      <div class="mk-card"><div class="av"></div><b>Сырники</b><span>45 000 сум</span></div>
+      <div class="mk-card"><div class="av"></div><b>Чизкейк</b><span>39 000 сум</span></div>
+    </div>
+  </div>
+</div>
+    <div><span class="badge">Концепт</span><h2 data-reveal>Так может выглядеть сайт кофейни</h2><p>Сайтов для кафе в нашем портфолио пока нет, поэтому показываем концепт: меню и цены — пример. Айдентику для заведений мы уже делали — она ниже.</p></div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Уже в HoReCa</div><h2 data-reveal>Айдентика, которую мы сделали <em>для заведений</em></h2></div></div>
+    <div class="brands2 lane" data-stagger>
+      <article class="brand-card">{% set b = D.brands[1] %}<div class="brand-ph{% if b.logo %} has-logo{% endif %}">{% if b.logo %}<img src="img/{{ b.logo }}" alt="Логотип MATA Coffee" loading="lazy">{% else %}MATA<br>COFFEE{% endif %}</div><div><div class="niche">Кофейня</div><h3>MATA Coffee</h3><p>Удобная современная кофейня, которая делает ставку на качество. Сделали логотип.</p></div></article>
+      <article class="brand-card">{% set b = D.brands[2] %}<div class="brand-ph{% if b.logo %} has-logo{% endif %}">{% if b.logo %}<img src="img/{{ b.logo }}" alt="Логотип Retro 90" loading="lazy">{% else %}RETRO<br>90{% endif %}</div><div><div class="niche">Ресторан</div><h3>Retro 90</h3><p>Ресторан европейской и ретро-кухни. Сделали логотип.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Состав сайта</div><h2 data-reveal>Пять страниц, <em>которых хватает</em></h2></div><p class="lead">Одному заведению часто хватает лендинга — 1–3 дня{% if price('landing') %}, {{ price('landing') }}{% endif %}. Сайт для сети — 3–6 дней.</p></div>
+    <div class="pages" data-stagger><div><b>Главная</b><span>Атмосфера, меню, адрес</span></div><div><b>Меню</b><span>По категориям, с ценами</span></div><div><b>О заведении</b><span>Фото зала и команды</span></div><div><b>Банкеты</b><span>Мероприятия и заявка</span></div><div><b>Контакты</b><span>Карта, часы, бронь</span></div></div>
+  </div>
+</section>
+{% include 'partials/guarantee.html' %}
+{{ m.final_card('Расскажите о заведении&nbsp;— назовём <em>срок и цену.</em>', page.ctx) }}
+{% endblock %}

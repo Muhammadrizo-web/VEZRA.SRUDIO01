@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as m %}
+{% block main %}
+{% set case = page.case %}{% set nx = CASES[case.next] %}
+{% set host = case.hostname %}
+<section class="phero case-hero screen">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><a href="keysy.html">Кейсы</a><span>/</span><span>{{ case.title }}</span></nav>
+    <div class="case-top">
+      <div>
+        <div class="niche" data-in="1">{{ case.niche }}</div>
+        <h1 data-in="2">{{ case.title }}</h1>
+        <p class="sub" data-in="3">{{ case.lead }}</p>
+      </div>
+      <div class="case-top-side" data-in="4">
+        {{ m.case_facts(case, with_year=True) }}
+        {% if case.url %}<div class="case-links">{{ m.ext_link(case.url, 'Открыть сайт ' ~ host) }}</div>{% endif %}
+      </div>
+    </div>
+    <div class="case-cover" data-in="5">
+      {% if case.img %}{{ m.shot(case.img ~ '-hero.webp', 'Главный экран сайта ' ~ case.title, host=host, cls='wide-shot', w=1440, h=900, eager=True) }}{% else %}{{ m.cover(case, host=host) | replace('class="shot cover', 'class="shot cover wide-shot') }}{% endif %}
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap split">
+    {% include 'cases/' ~ case.key ~ '.html' %}
+  </div>
+</section>
+{% if case.img %}
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Экраны</div><h2 data-reveal>Как это выглядит</h2></div><p class="lead" data-reveal><span class="only-desk">Наведите на длинный экран — он прокрутится сам.</span><span class="only-mob">Так сайт выглядит на телефоне.</span></p></div>
+    <div class="shots2" data-stagger>
+      {{ m.shot(case.img ~ '-long.webp', 'Сайт ' ~ case.title ~ ' целиком', host=host, long=True, w=1200, h=case.long_h) }}
+      {{ m.phone(case.img ~ '-m1.webp', case.title ~ ' на телефоне — главный экран') }}
+      {{ m.phone(case.img ~ '-m2.webp', case.title ~ ' на телефоне — внутренняя страница') }}
+    </div>
+  </div>
+</section>
+{% endif %}
+<section class="sec-tight screen final-screen">
+  <div class="wrap">
+    <a class="next-case" href="{{ nx.slug }}.html" data-reveal><div><small>Следующий кейс</small><b>{{ nx.title }}</b></div><span class="arr">{{ icon('arrow') }}</span></a>
+    <div class="final-card dots-dark" id="contact" data-spot>
+      <h2 data-reveal>{{ 'Нужен такой же сайт?' if case.key != 'xizmattop' else 'Нужен такой же редизайн?' }} <em>Назовём срок и цену.</em></h2>
+      <div class="final-side" data-reveal>
+        <p>Пришлите ссылку на ваш Instagram или текущий сайт — в ответ назовём срок и цену. Проект-менеджер отвечает в течение часа.</p>
+        <a class="btn btn-white" {{ tg(page.ctx) }}>{{ icon('tg') }}Написать в Telegram</a>
+        {% if tg_handle() %}<div class="tg">Наш Telegram: <button type="button" class="copy" data-copy="{{ tg_handle() }}" aria-label="Скопировать ник {{ tg_handle() }}">{{ tg_handle() }}{{ icon('copy') }}</button></div>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

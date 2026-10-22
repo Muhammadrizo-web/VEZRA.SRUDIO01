@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XizmatTop — кейс Vezra Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Редизайн интерфейса сервиса вызова мастеров: одна палитра, дневная и ночная тема, 4 языка, запись на сайте и в Telegram Mini App.">
+<meta property="og:title" content="XizmatTop — кейс Vezra Studio">
+<meta property="og:description" content="Редизайн интерфейса сервиса вызова мастеров: одна палитра, дневная и ночная тема, 4 языка, запись на сайте и в Telegram Mini App.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#0D3B28">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230D3B28'/%3E%3Cpath d='M18 18h8l6 20 6-20h8L36 46h-8z' fill='%23fff'/%3E%3Ccircle cx='47' cy='45' r='4' fill='%23C96442'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="styles.css?v=3e6cb689">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header class="hdr" id="top">
+  <div class="wrap">
+    <div class="hdr-row">
+      <a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><b>VEZRA</b><span>STUDIO</span></a>
+      <nav class="nav" aria-label="Основное меню">
+        <a href="keysy.html" aria-current="page">Кейсы</a>
+        <a href="index.html#services">Услуги</a>
+        <a href="kliniki.html">Клиникам</a>
+        <a href="kafe-restorany.html">Кафе и ресторанам</a>
+        <a href="o-studii.html">О студии</a>
+      </nav>
+      <a class="btn btn-green btn-sm btn-hdr" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+      <div class="hdr-mob">
+        <a class="round fill tg-pill" aria-label="Написать в Telegram" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg><span>Написать</span></a>
+        <button class="round burger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><i></i><i></i></button>
+      </div>
+    </div>
+    <nav class="mnav" id="mnav" hidden aria-label="Мобильное меню">
+      <a href="index.html">Главная</a>
+      <a href="keysy.html" aria-current="page">Кейсы</a>
+      <a href="index.html#services">Услуги</a>
+      <a href="kliniki.html">Клиникам</a>
+      <a href="kafe-restorany.html">Кафе и ресторанам</a>
+      <a href="o-studii.html">О студии</a>
+      <a class="btn btn-green" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+    </nav>
+  </div>
+  <span class="hdr-progress" aria-hidden="true"></span>
+</header>
+<main id="main">
+<section class="phero case-hero screen">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><a href="keysy.html">Кейсы</a><span>/</span><span>XizmatTop</span></nav>
+    <div class="case-top">
+      <div>
+        <div class="niche" data-in="1">Сервис вызова мастеров · Ташкент</div>
+        <h1 data-in="2">XizmatTop</h1>
+        <p class="sub" data-in="3">Редизайн интерфейса: одна палитра вместо семи акцентов, дневная и ночная тема, понятная запись к мастеру на сайте и в Telegram Mini App.</p>
+      </div>
+      <div class="case-top-side" data-in="4">
+        <div class="facts">
+  <div>Объём<b>Редизайн UI</b></div>
+<div>Языки<b>4</b></div><div>Год<b>2026</b></div></div>
+
+      </div>
+    </div>
+    <div class="case-cover" data-in="5">
+<div class="shot wide-shot">
+  <div class="bar"><i></i><i></i><i></i><u>xizmattop</u></div>
+  <div class="scr"><img src="img/xizmattop-hero.webp" alt="Главный экран сайта XizmatTop" width="1440" height="900" decoding="async"></div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap split">
+<div data-reveal><div class="kicker">Задача</div><h2>С чем пришёл клиент</h2><p>Сервис записи к мастерам в Ташкенте: сантехники, электрики, ремонт техники, врачи, репетиторы, клининг. Работает на сайте и в Telegram Mini App. Интерфейс был перегружен: семь акцентных цветов, обои, погода — всё это мешало главному действию, записи к мастеру.</p></div>
+    <div><div class="kicker">Что сделали</div><ul class="did" data-stagger><li><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-1.1-.9-1.6-.9-2.6 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3Z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.2" r="1.2"/></svg></span><div><b>Одна палитра</b><span>Синий — для навигации, оранжевый — одна главная кнопка на экране.</span></div></li><li><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg></span><div><b>Дневная, ночная и авто-тема</b><span>Тема подстраивается под настройки Telegram и телефона.</span></div></li><li><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9S14.5 18.4 12 21c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"/></svg></span><div><b>4 языка интерфейса</b><span>Узбекский, русский, английский и китайский.</span></div></li><li><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg></span><div><b>Аудит текущего сайта</b><span>Нашли ошибки в выводе каталога и в счётчиках, исправили их в новом интерфейсе.</span></div></li><li><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg></span><div><b>Пакет для разработчика клиента</b><span>Кликабельный прототип, цветовые токены, тема и словари переводов.</span></div></li></ul></div>  </div>
+</section>
+<section class="sec-tight screen">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Экраны</div><h2 data-reveal>Как это выглядит</h2></div><p class="lead" data-reveal><span class="only-desk">Наведите на длинный экран — он прокрутится сам.</span><span class="only-mob">Так сайт выглядит на телефоне.</span></p></div>
+    <div class="shots2" data-stagger>
+      <div class="shot  is-long" data-scroll-shot>
+  <div class="bar"><i></i><i></i><i></i><u>xizmattop</u></div>
+  <div class="scr"><img src="img/xizmattop-long.webp" alt="Сайт XizmatTop целиком" width="1200" height="1372" loading="lazy" decoding="async"></div>
+</div>
+
+      <div class="shot phone"><div class="scr"><img src="img/xizmattop-m1.webp" alt="XizmatTop на телефоне — главный экран" width="600" height="1298" loading="lazy" decoding="async"></div></div>
+
+      <div class="shot phone"><div class="scr"><img src="img/xizmattop-m2.webp" alt="XizmatTop на телефоне — внутренняя страница" width="600" height="1298" loading="lazy" decoding="async"></div></div>
+
+    </div>
+  </div>
+</section>
+<section class="sec-tight screen final-screen">
+  <div class="wrap">
+    <a class="next-case" href="keys-maxipharm.html" data-reveal><div><small>Следующий кейс</small><b>MaxiPharm Expert</b></div><span class="arr"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <div class="final-card dots-dark" id="contact" data-spot>
+      <h2 data-reveal>Нужен такой же редизайн? <em>Назовём срок и цену.</em></h2>
+      <div class="final-side" data-reveal>
+        <p>Пришлите ссылку на ваш Instagram или текущий сайт — в ответ назовём срок и цену. Проект-менеджер отвечает в течение часа.</p>
+        <a class="btn btn-white" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><a class="logo" href="index.html"><b>VEZRA</b><span>STUDIO</span></a><p>Сайты, брендинг и контент для бизнеса в Узбекистане.</p></div>
+      <div class="f-col"><h4>Студия</h4><a href="keysy.html">Кейсы</a><a href="index.html#services">Услуги</a><a href="o-studii.html">О студии</a><a href="o-studii.html#process">Как работаем</a></div>
+      <div class="f-col"><h4>Направления</h4><a href="kliniki.html">Сайты для клиник</a><a href="kafe-restorany.html">Сайты для кафе и ресторанов</a></div>
+      <div class="f-col"><h4>Связь</h4>
+        <a href="https://instagram.com/vezra_studio" target="_blank" rel="noopener">Instagram @vezra_studio</a>
+      </div>
+    </div>
+    <div class="f-bot"><span>© 2025–2026 Vezra Studio · Ташкент</span><span>Отвечаем в течение часа в рабочее время</span></div>
+  </div>
+</footer>
+<script src="app.js?v=3e6cb689" defer></script>
+</body>
+</html>
