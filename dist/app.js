@@ -180,6 +180,29 @@
     });
   });
 
+  /* ---------- mobile: sticky CTA at the bottom ----------
+     Появляется, когда первый экран прокручен, и прячется, пока на экране
+     финальный блок с контактами или открыто меню. */
+  var mcta = $('#mcta');
+  if (mcta) {
+    var finalBox = $('#contact'), finalVisible = false, mctaTick = false;
+    var mctaLink = $('a', mcta);
+    var mctaUpdate = function () {
+      mctaTick = false;
+      var y = w.scrollY || w.pageYOffset;
+      var on = y > Math.min(560, w.innerHeight * 0.7) && !finalVisible && !root.classList.contains('menu-open');
+      mcta.classList.toggle('is-on', on);
+      mcta.setAttribute('aria-hidden', String(!on));
+      if (mctaLink) mctaLink.tabIndex = on ? 0 : -1;
+    };
+    if (finalBox && hasIO) {
+      new IntersectionObserver(function (es) { finalVisible = es[0].isIntersecting; mctaUpdate(); }, { rootMargin: '0px 0px 80px 0px' }).observe(finalBox);
+    }
+    w.addEventListener('scroll', function () { if (!mctaTick) { mctaTick = true; raf(mctaUpdate); } }, { passive: true });
+    if (btn) btn.addEventListener('click', function () { setTimeout(mctaUpdate, 0); });
+    mctaUpdate();
+  }
+
   /* ---------- pause the marquee when off-screen ---------- */
   var mq = $('[data-marquee] .marquee-track');
   if (mq && hasIO) {

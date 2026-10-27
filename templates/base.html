@@ -2,8 +2,8 @@
 <html lang="{{ page.lang }}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 {% endif %}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.desc }}">
 <meta property="og:title" content="{{ page.title }}">
@@ -74,6 +74,9 @@
     <div class="f-bot"><span>© {{ S.since }}–2026 Vezra Studio, {{ S.city }}</span><a href="#top">Наверх</a></div>
   </div>
 </footer>
+<div class="mcta" id="mcta" aria-hidden="true">
+  <a class="btn btn-primary" tabindex="-1" {{ tg(page.ctx) }}>{{ icon(CH_ICON) }}Обсудить проект</a>
+</div>
 <script src="app.js?v={{ ver }}" defer></script>
 {% if not fragment %}
 </body>
