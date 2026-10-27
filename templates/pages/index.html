@@ -2,133 +2,139 @@
 {% import 'macros.html' as m %}
 {% block main %}
 {% set sv = CASES.samarcande %}{% set xz = CASES.xizmattop %}{% set mp = CASES.maxipharm %}
-<section class="hero screen">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="chip" data-in="1"><i></i>Сайты · Брендинг · Контент — {{ S.city }}</span>
-      <h1 data-in="2"><span class="ln"><span>Сайт за <em>3–6&nbsp;дней.</em></span></span><span class="ln"><span>Срок — в&nbsp;договоре.</span></span></h1>
-      <p class="sub" data-in="3">Лендинг — от 1 дня, корпоративный сайт — от 3 дней. <b>Сорвём срок по нашей вине — минус {{ G.per_day }}% от цены за каждый день.</b></p>
-      <div class="cta-row" data-in="4"><a class="btn btn-green" data-magnet {{ tg(page.ctx) }}>{{ icon('tg') }}Обсудить проект в Telegram</a>{{ m.arrow_link('keysy.html', 'Смотреть кейсы') }}</div>
-      <div class="reply" data-in="5"><i></i>Отвечаем в течение часа {{ S.hours }}</div>
-    </div>
-    <div class="hero-b">
-      <div class="dcard dots-dark" data-in="3" data-tilt data-spot>
-        {% include 'partials/stamp.html' %}
-        <div class="lbl">Сроки по договору</div>
-        <div class="drow"><span>Лендинг</span><div class="num"><b data-roll>{{ D.terms.landing }}</b><small>{{ D.terms.landing_unit }}</small></div></div>
-        <div class="drow"><span>Корпоративный сайт</span><div class="num"><b data-roll>{{ D.terms.corp }}</b><small>{{ D.terms.corp_unit }}</small></div></div>
-        <div class="dguard">{{ icon('shield') }}<span>За каждый день просрочки по нашей вине — минус {{ G.per_day }}%, до {{ G.max }}%. Доработки бесплатно.</span></div>
-        <a class="dproof" href="{{ sv.slug }}.html"><span><b>Samarcande Voyage</b> — многостраничный сайт на французском. Сдали за {{ sv.days }} дней.</span>{{ icon('arrow') }}</a>
-        <div class="dnote">Срок отсчитывается с дня, когда у нас все материалы: тексты, фото, логотип, доступы.</div>
-      </div>
-      <div class="logos">
-          <div class="logos-in">
-            <p>Нам доверили свой бренд</p>
-            <div class="marquee" data-marquee>
-              <div class="marquee-track">
-                {% for dup in [false, true] %}
-                <div class="logo-row"{% if dup %} aria-hidden="true"{% endif %}>{% for b in D.brands %}{% if b.logo %}<span class="lg-img"><img src="img/{{ b.logo }}" alt="{{ b.title }}" loading="lazy"></span>{% else %}<span>{{ b.name }}</span>{% endif %}{% endfor %}</div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec screen" id="cases">
+<section class="hero">
   <div class="wrap">
-    <div class="sec-head">
-      <div><div class="kicker">Кейсы</div><h2 data-reveal>Последние сайты: <em>задача, решение, срок</em></h2></div>
-      <div class="honest" data-reveal>{{ icon('info') }}<span>Не рисуем выдуманные проценты. Цифры роста добавим, когда клиенты их подтвердят.</span></div>
-    </div>
-    <div class="slider" data-slider>
-      <div class="slides lane" data-reveal>
-        {% for c in [sv, mp, xz] %}
-        <article class="case-feature slide" data-case aria-label="Кейс {{ loop.index }} из 3: {{ c.title }}">
-          <div class="slide-copy"><div class="niche">{{ c.niche }}</div><h3>{{ c.title }}</h3><p>{{ c.lead }}</p>{{ m.case_facts(c) }}
-            <div class="case-links">{{ m.arrow_link(c.slug ~ '.html', 'Смотреть кейс') }}{% if c.url %}{{ m.ext_link(c.url) }}{% endif %}</div></div>
-          <a class="shot-link" href="{{ c.slug }}.html" aria-label="Кейс {{ c.title }}" data-cursor="Смотреть">{{ m.case_visual(c, eager=loop.first) }}</a>
-        </article>
-        {% endfor %}
-      </div>
-      <div class="slider-foot">
-        <div class="slider-nav">
-          <button type="button" class="round" data-prev aria-label="Предыдущий кейс">{{ icon('arrow') }}</button>
-          <span class="slider-count" aria-live="polite"><b data-current>01</b> / 03</span>
-          <button type="button" class="round" data-next aria-label="Следующий кейс">{{ icon('arrow') }}</button>
+    <div class="hero-top">
+      <h1 class="h-hero">Сайт за 6&nbsp;дней. Срок&nbsp;— в&nbsp;договоре.</h1>
+      <div class="hero-side">
+        <p class="sub">Делаем сайты, логотипы и контент для бизнеса в Узбекистане. Лендинг запускаем за 1–3 дня, корпоративный сайт за 3–6.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" {{ tg(page.ctx) }}>{{ icon(CH_ICON) }}Обсудить проект</a>
+          {{ m.arrow_link('keysy.html', 'Смотреть работы') }}
         </div>
-        {{ m.arrow_link('keysy.html', 'Все кейсы, включая 9 брендов') }}
       </div>
     </div>
+
+    <figure class="tl" data-timeline aria-label="Как идёт проект по дням">
+      <figcaption class="tl-cap"><span>Как идёт проект</span><span class="tl-note">{{ icon('shield') }}Опоздаем по нашей вине&nbsp;— минус {{ G.per_day }}% за каждый день</span></figcaption>
+      <ol class="tl-days">
+        <li><b>День 1</b><span>Договор и материалы</span></li>
+        <li><b>День 2</b><span>Дизайн главной</span></li>
+        <li class="ms"><b>День 3</b><span>Лендинг запущен</span></li>
+        <li><b>День 4</b><span>Внутренние страницы</span></li>
+        <li><b>День 5</b><span>Вёрстка и проверка</span></li>
+        <li class="ms"><b>День 6</b><span>Сайт запущен</span></li>
+      </ol>
+    </figure>
   </div>
 </section>
 
-<section class="sec-tight screen" id="services">
+<section class="brands" aria-label="Нам доверили свой бренд">
+  <div class="marquee" data-marquee>
+    <div class="marquee-track">
+      {% for dup in [false, true] %}
+      <div class="logo-row"{% if dup %} aria-hidden="true"{% endif %}>{% for b in D.brands %}{% if b.logo %}<span class="lg-img"><img src="img/{{ b.logo }}" alt="{{ b.title }}" loading="lazy"></span>{% else %}<span>{{ b.title }}</span>{% endif %}{% endfor %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cases">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="kicker">Услуги</div><h2 data-reveal>Три вещи, которые мы делаем <em>хорошо</em></h2></div>
-      <p class="lead" data-reveal>{% if price('landing') %}Цены указаны «от». Точную назовём после короткого разбора задачи — до предоплаты.{% else %}Цену называем после короткого разбора задачи — до предоплаты.{% endif %}</p>
+      <h2 class="h-l">Последние работы</h2>
+      <p class="lead">По каждому проекту: с чем пришёл клиент, что сделали и за какой срок.</p>
     </div>
-    <div class="svc-grid lane" data-stagger>
-      <div class="svc dots-dark" data-spot><div class="n">01</div><h3>Сайты</h3><ul>
-        <li><div>Лендинг{% if price('landing') %}<small>{{ price('landing') }}</small>{% endif %}</div><span>{{ D.terms.landing }} {{ D.terms.landing_unit }}</span></li>
-        <li><div>Корпоративный сайт{% if price('corp') %}<small>{{ price('corp') }}</small>{% endif %}</div><span>{{ D.terms.corp }} {{ D.terms.corp_unit }}</span></li>
-        <li><div>Редизайн сайта{% if price('redesign') %}<small>{{ price('redesign') }}</small>{% endif %}</div><span>по задаче</span></li></ul>
-        <div class="foot">Версия для телефона и <b>несколько языков</b> — в каждом проекте.</div></div>
-      <div class="svc"><div class="n">02</div><h3>Брендинг</h3><ul>
-        <li><div>Логотип{% if price('logo') %}<small>{{ price('logo') }}</small>{% endif %}</div></li>
-        <li><div>Фирменный стиль{% if price('identity') %}<small>{{ price('identity') }}</small>{% endif %}</div></li>
-        <li><div>Упаковка и носители</div></li></ul>
-        <div class="foot"><b>9 брендов</b> — от фармацевтики до фитнес-клуба.</div></div>
-      <div class="svc"><div class="n">03</div><h3>Контент</h3><ul>
-        <li><div>Карусели и сторис{% if price('content') %}<small>{{ price('content') }}</small>{% endif %}</div></li>
-        <li><div>Визуалы для рекламы</div></li>
-        <li><div>Оформление профиля</div></li></ul>
-        <div class="foot">Своя система производства — <b>готовые визуалы для вашего SMM-специалиста</b>.</div></div>
+    <div class="cases">
+      {% for c in [sv, mp, xz] %}
+      <article class="case{% if loop.index is even %} flip{% endif %}" data-case>
+        <a class="case-vis" href="{{ c.slug }}.html" aria-label="Кейс {{ c.title }}" tabindex="-1">{{ m.case_visual(c, eager=loop.first) }}</a>
+        <div class="case-info">
+          <p class="niche">{{ c.niche }}</p>
+          <h3 class="h-m"><a href="{{ c.slug }}.html">{{ c.title }}</a></h3>
+          <p>{{ c.lead }}</p>
+          {{ m.case_facts(c) }}
+          <div class="links">{{ m.arrow_link(c.slug ~ '.html', 'Смотреть кейс') }}{% if c.url %}{{ m.ext_link(c.url) }}{% endif %}</div>
+        </div>
+      </article>
+      {% endfor %}
     </div>
-    <div class="niches" data-stagger>
-      <a class="niche-card" href="kliniki.html"><div><small>Отдельное направление</small><b>Сайты для клиник и стоматологий</b></div><span class="arr">{{ icon('arrow') }}</span></a>
-      <a class="niche-card" href="kafe-restorany.html"><div><small>Отдельное направление</small><b>Сайты для кафе и ресторанов</b></div><span class="arr">{{ icon('arrow') }}</span></a>
-    </div>
+    <div class="more">{{ m.arrow_link('keysy.html', 'Все работы, включая брендинг', 'btn btn-ghost') }}</div>
   </div>
 </section>
 
-<section class="sec-tight screen" id="process">
+<section class="sec sec-soft" id="services">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Как работаем</div><h2 data-reveal>Четыре шага от сообщения <em>до&nbsp;запуска</em></h2></div></div>
-    {% include 'partials/steps.html' %}
+    <div class="sec-head">
+      <h2 class="h-l">Услуги</h2>
+      <p class="lead">{% if price('landing') %}Цены указаны «от». Точную назовём после короткого разбора задачи, до предоплаты.{% else %}Цену называем после короткого разбора задачи, до предоплаты.{% endif %}</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc">
+        <h3 class="h-m">Сайты</h3>
+        <ul>
+          <li><span>Лендинг</span>{% if price('landing') %}<em>{{ price('landing') }}</em>{% endif %}<b>{{ D.terms.landing }} {{ D.terms.landing_unit }}</b></li>
+          <li><span>Корпоративный сайт</span>{% if price('corp') %}<em>{{ price('corp') }}</em>{% endif %}<b>{{ D.terms.corp }} {{ D.terms.corp_unit }}</b></li>
+          <li><span>Редизайн сайта или интерфейса</span>{% if price('redesign') %}<em>{{ price('redesign') }}</em>{% endif %}<b>по задаче</b></li>
+        </ul>
+        <p class="svc-note">В каждом проекте: версия для телефона, несколько языков, запуск на вашем домене.</p>
+      </div>
+      <div class="svc">
+        <h3 class="h-m">Брендинг</h3>
+        <ul>
+          <li><span>Логотип</span>{% if price('logo') %}<em>{{ price('logo') }}</em>{% endif %}</li>
+          <li><span>Фирменный стиль</span>{% if price('identity') %}<em>{{ price('identity') }}</em>{% endif %}</li>
+          <li><span>Упаковка и носители</span></li>
+        </ul>
+        <p class="svc-note">Делали знаки для фармацевтики, кофейни, ресторана, фитнес-клуба и магазинов.</p>
+      </div>
+      <div class="svc">
+        <h3 class="h-m">Контент</h3>
+        <ul>
+          <li><span>Карусели и сторис</span>{% if price('content') %}<em>{{ price('content') }}</em>{% endif %}</li>
+          <li><span>Визуалы для рекламы</span></li>
+          <li><span>Оформление профиля</span></li>
+        </ul>
+        <p class="svc-note">Шаблоны в вашем фирменном стиле: ваш SMM-специалист получает готовые визуалы.</p>
+      </div>
+    </div>
+    <div class="niches">
+      <a class="niche-link" href="kliniki.html"><span><small>Отдельное направление</small><b>Сайты для клиник и стоматологий</b></span>{{ icon('arrow') }}</a>
+      <a class="niche-link" href="kafe-restorany.html"><span><small>Отдельное направление</small><b>Сайты для кафе и ресторанов</b></span>{{ icon('arrow') }}</a>
+    </div>
   </div>
 </section>
 
 {% include 'partials/guarantee.html' %}
 
-<section class="sec-tight screen" id="team">
+<section class="sec" id="process">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="kicker">О студии</div><h2 data-reveal>Команда из четырёх человек. <em>С&nbsp;{{ S.since }}&nbsp;года.</em></h2></div>
-      <p class="lead" data-reveal>Вы общаетесь с одним человеком — проект-менеджером. Он ведёт проект от первого сообщения до запуска.</p>
+      <h2 class="h-l">Как работаем</h2>
+      <p class="lead">Весь проект ведёт один проект-менеджер: от первого сообщения до запуска.</p>
     </div>
-    {% include 'partials/team.html' %}
-    <div class="more-link">{{ m.arrow_link('o-studii.html', 'Подробнее о студии') }}</div>
+    {% include 'partials/steps.html' %}
   </div>
 </section>
 
-<section class="sec-tight screen" id="faq">
+<section class="sec sec-soft" id="faq">
   <div class="wrap faq-grid">
-    <div class="faq-side"><div class="kicker">Вопросы</div><h2 data-reveal>Что обычно спрашивают</h2><p>Не нашли ответ — напишите, ответим в течение часа.</p><a class="btn btn-green" data-magnet {{ tg('question') }}>{{ icon('tg') }}Задать вопрос</a></div>
-    <div class="faq" data-stagger data-accordion>
-      <details open><summary>Сколько стоит сайт?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>{% if price('landing') and price('corp') %}Лендинг — {{ price('landing') }}, корпоративный сайт — {{ price('corp') }}. Итоговая цена зависит от количества страниц, языков и функций — назовём её после короткого разбора, до предоплаты.{% else %}Зависит от объёма: количества страниц, языков и функций. Точную цену называем после короткого разбора задачи — до предоплаты.{% endif %}</p></div></details>
-      <details><summary>Как вы успеваете за 3–6 дней?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Работаем командой из четырёх человек, а срок отсчитывается, когда все материалы у нас. Дизайн, вёрстка и тексты идут параллельно, ничего не простаивает.</p></div></details>
-      <details><summary>Что будет, если сорвёте срок?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Если по нашей вине — минус {{ G.per_day }}% от стоимости за каждый день просрочки, максимум {{ G.max }}%. Доработки до согласованного результата — бесплатно. Это прописано в договоре.</p></div></details>
-      <details><summary>Что нужно от нас?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Тексты, фото, логотип и доступы к домену. Если чего-то нет, подскажем, как собрать быстро.</p></div></details>
-      <details><summary>Как оплачивать?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>На выбор: 50% до старта и 50% после сдачи или 40 / 30 / 30 по этапам.</p></div></details>
-      <details><summary>Сайт будет нашим?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Да. Сайт работает на вашем домене, файлы и доступы после запуска передаём вам.</p></div></details>
-      <details><summary>Делаете сайты на нескольких языках?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Да. MaxiPharm Expert — на трёх языках, Samarcande Voyage — на французском, интерфейс XizmatTop — на четырёх.</p></div></details>
+    <div class="faq-side">
+      <h2 class="h-l">Частые вопросы</h2>
+      <p>Не нашли ответ? Напишите, ответим в течение часа.</p>
+      <a class="btn btn-ghost" {{ tg('question') }}>{{ icon(CH_ICON) }}Задать вопрос</a>
+    </div>
+    <div class="faq" data-accordion>
+      <details open><summary>Сколько стоит сайт?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>{% if price('landing') and price('corp') %}Лендинг — {{ price('landing') }}, корпоративный сайт — {{ price('corp') }}. Итог зависит от количества страниц, языков и функций. Точную цену назовём после короткого разбора, до предоплаты.{% else %}Зависит от количества страниц, языков и функций. Точную цену назовём после короткого разбора задачи, до предоплаты.{% endif %}</p></div></details>
+      <details><summary>Почему так быстро?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Дизайн, вёрстка и тексты идут параллельно, а работу начинаем, когда у нас есть все материалы. Поэтому ничего не простаивает в ожидании.</p></div></details>
+      <details><summary>Что будет, если вы сорвёте срок?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Если по нашей вине, стоимость снижается на {{ G.per_day }}% за каждый день просрочки, максимум на {{ G.max }}%. Доработки до согласованного результата бесплатные. Это пункт договора.</p></div></details>
+      <details><summary>Что нужно от нас?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Тексты, фото, логотип и доступ к домену. Если чего-то нет, подскажем, как быстро это собрать.</p></div></details>
+      <details><summary>Как оплачивать?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>На выбор: 50% до старта и 50% после сдачи или 40%, 30% и 30% по этапам.</p></div></details>
+      <details><summary>Сайт будет нашим?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Да. Сайт работает на вашем домене, а все файлы и доступы после запуска остаются у вас.</p></div></details>
+      <details><summary>Можно сайт на нескольких языках?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Да. Сайт MaxiPharm Expert работает на русском, английском и узбекском, Samarcande Voyage на французском, а интерфейс XizmatTop на четырёх языках.</p></div></details>
     </div>
   </div>
 </section>
 
-{{ m.final_card('Расскажите о&nbsp;задаче&nbsp;— назовём <em>срок и цену.</em>', page.ctx) }}
+{{ m.final_card('Расскажите о&nbsp;задаче', page.ctx) }}
 {% endblock %}

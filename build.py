@@ -12,6 +12,41 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# ---------- языки ----------
+# ru — исходный язык шаблонов (корень сайта), en/ и uz/ — переводы из i18n/<lang>.json.
+# Ключ словаря — русская строка как на странице (пробелы схлопнуты), значение — перевод.
+LANGS = [('ru', ''), ('en', 'en/'), ('uz', 'uz/')]
+LANG_META = {
+    'ru': {'name': 'RU', 'label': 'Русский', 'locale': 'ru_RU'},
+    'en': {'name': 'EN', 'label': 'English', 'locale': 'en_US'},
+    'uz': {'name': 'UZ', 'label': "O‘zbekcha", 'locale': 'uz_UZ'},
+}
+CUR = {'lang': 'ru'}
+
+
+def load_dict(lang):
+    p = os.path.join(ROOT, 'i18n', lang + '.json')
+    if not os.path.exists(p):
+        return {}
+    raw = json.load(open(p, encoding='utf-8'))
+    return {norm(k): v for k, v in raw.items() if not k.startswith('_')}
+
+
+def norm(t):
+    import html as _h
+    return re.sub(r'\s+', ' ', _h.unescape(t).replace('\xa0', ' ')).strip()
+
+
+DICTS = {}
+
+
+def tr(text, lang=None):
+    """Перевод строки из словаря; если перевода нет — исходный русский текст."""
+    lang = lang or CUR['lang']
+    if lang == 'ru':
+        return text
+    return DICTS.get(lang, {}).get(norm(text), text)
 D = json.load(open(os.path.join(ROOT, 'site.json'), encoding='utf-8'))
 
 ICONS = {
@@ -30,6 +65,14 @@ ICONS = {
     'phone': '<path d="M5 4.5h3.2l1.6 4-2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2 4 1.6v3.2a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 6.1A1.5 1.5 0 0 1 5 4.5Z"/>',
     'mail': '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>',
     'insta': '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8v.1"/>',
+    'doctor': '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.7.8 2.7 2.5 3 5.2"/>',
+    'tag': '<path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1l8 8a1.5 1.5 0 0 1 0 2.1l-6.9 6.9a1.5 1.5 0 0 1-2.1 0l-8.1-7.9Z"/><circle cx="8.5" cy="8.5" r="1.6"/>',
+    'pin': '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    'doc': '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+    'chat': '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>',
+    'list': '<path d="M5 4h14v16H5z"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/>',
+    'camera': '<path d="M3 8h4l2-2.5h6L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.5"/>',
+    'truck': '<path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
 }
 
 
@@ -54,11 +97,19 @@ DRAFTS = {
 }
 
 
+# Канал связи: Telegram, а пока ник не указан в site.json — Direct в Instagram.
+CH = 'Telegram' if S['telegram'] else 'Instagram'
+CH_ICON = 'tg' if S['telegram'] else 'insta'
+
+
 def tg(ctx='default'):
-    """Атрибуты ссылки на Telegram c черновиком сообщения."""
+    """Атрибуты ссылки на Telegram c черновиком сообщения (или на Direct Instagram, если Telegram не указан)."""
     if not S['telegram']:
+        if S.get('instagram'):
+            url = f"https://ig.me/m/{S['instagram'].lstrip('@')}"
+            return Markup(f'href="{escape(url)}" target="_blank" rel="noopener" data-tg="ig-{ctx}"')
         return Markup('href="#contact" data-tg="pending"')
-    url = f"https://t.me/{S['telegram'].lstrip('@')}?text={quote(DRAFTS.get(ctx, DRAFTS['default']))}"
+    url = f"https://t.me/{S['telegram'].lstrip('@')}?text={quote(tr(DRAFTS.get(ctx, DRAFTS['default'])))}"
     return Markup(f'href="{escape(url)}" target="_blank" rel="noopener" data-tg="{ctx}"')
 
 
@@ -99,11 +150,11 @@ def asset_ver():
 
 PAGES = [
     # slug, template, title, description, nav key, tg context
-    ('index', 'index.html', 'Vezra Studio',
-     'Лендинг за 1–3 дня, корпоративный сайт за 3–6 дней. Срок пишем в договор: за каждый день просрочки по нашей вине — минус 10%. Брендинг и контент для бизнеса в Узбекистане.',
+    ('index', 'index.html', 'Vezra Studio — сайты за 3–6 дней с гарантией срока',
+     'Лендинг за 1–3 дня, корпоративный сайт за 3–6 дней. Срок прописываем в договоре: за каждый день просрочки по нашей вине — минус 10%. Брендинг и контент для бизнеса в Узбекистане.',
      'home', 'default'),
-    ('keysy', 'keysy.html', 'Кейсы — Vezra Studio',
-     'Сайты и брендинг Vezra Studio: Samarcande Voyage, MaxiPharm Expert, XizmatTop и 9 брендов. Задача, решение и срок по каждому проекту.',
+    ('keysy', 'keysy.html', 'Работы — Vezra Studio',
+     'Сайты и брендинг Vezra Studio: Samarcande Voyage, MaxiPharm Expert, XizmatTop и фирменные знаки. Задача, решение и срок по каждому проекту.',
      'cases', 'cases'),
     ('keys-samarcande', 'case.html', 'Samarcande Voyage — кейс Vezra Studio',
      'Многостраничный сайт тур-агентства на французском: маршрут, программа тура по дням, города и галерея. Сдали за 4–5 дней.',
@@ -121,7 +172,7 @@ PAGES = [
      'Сайт кафе или ресторана: лендинг за 1–3 дня, сайт для сети за 3–6 дней. Меню с ценами, фото, маршрут и бронь в Telegram.',
      'cafe', 'cafe'),
     ('o-studii', 'o-studii.html', 'О студии — Vezra Studio',
-     'Vezra Studio: команда из четырёх человек, с 2025 года. Принципы, процесс работы и оплата.',
+     'Vezra Studio — студия сайтов и брендинга в Ташкенте. Принципы, процесс работы и оплата.',
      'about', 'about'),
     ('404', '404.html', 'Страница не найдена — Vezra Studio', 'Такой страницы нет.', None, 'default'),
 ]
@@ -160,32 +211,88 @@ def has_img(name):
     return os.path.exists(os.path.join(ROOT, 'site', 'img', name))
 
 
+CYR = re.compile('[А-Яа-яЁё]')
+ATTR_RE = re.compile(r'\b(alt|aria-label|content|title|data-copy)="([^"]*)"')
+TEXT_RE = re.compile(r'>([^<]+)<')
+ASSET_RE = re.compile(r'\b(src|href|content)="(img/|fonts/|styles\.css|app\.js)')
+
+
+def translate_html(html, lang, missing):
+    """Переводит текстовые узлы и атрибуты, поправляет пути к общим файлам (../)."""
+    import html as _h
+    d = DICTS.get(lang, {})
+
+    def tx(raw, is_attr=False):
+        if not CYR.search(raw):
+            return raw
+        key = norm(raw)
+        if key not in d:
+            missing.add(key)
+            return raw
+        lead = re.match(r'^\s*', raw).group(0)
+        trail = re.search(r'\s*$', raw).group(0)
+        val = _h.escape(d[key], quote=is_attr)
+        return lead + val + trail
+
+    # не трогаем <script> и <style>
+    parts = re.split(r'(<script\b.*?</script>|<style\b.*?</style>)', html, flags=re.S)
+    for i in range(0, len(parts), 2):
+        seg = parts[i]
+        seg = TEXT_RE.sub(lambda m: '>' + tx(m.group(1)) + '<', seg)
+        seg = ATTR_RE.sub(lambda m: f'{m.group(1)}="{tx(m.group(2), True)}"', seg)
+        parts[i] = seg
+    html = ''.join(parts)
+    return ASSET_RE.sub(lambda m: f'{m.group(1)}="../{m.group(2)}', html)
+
+
 def build():
     global ver
     ver = asset_ver()
     env = Environment(loader=FileSystemLoader(os.path.join(ROOT, 'templates')), undefined=StrictUndefined,
                       autoescape=False, trim_blocks=True, lstrip_blocks=True)
-    env.globals.update(icon=icon, tg=tg, tg_handle=tg_handle, price=price, money=money, S=S, G=G, D=D,
+    env.globals.update(CH=CH, CH_ICON=CH_ICON, icon=icon, tg=tg, tg_handle=tg_handle, price=price, money=money, S=S, G=G, D=D,
                        person_name=person_name, g_short=g_short, CASES=CASES, has_img=has_img)
     for out in ('dist', 'preview'):
         p = os.path.join(ROOT, out)
-        shutil.rmtree(p, ignore_errors=True)
-        os.makedirs(p)
-        shutil.copytree(os.path.join(ROOT, 'site', 'img'), os.path.join(p, 'img'))
+        os.makedirs(p, exist_ok=True)  # перезаписываем, не удаляя папку
+        shutil.copytree(os.path.join(ROOT, 'site', 'img'), os.path.join(p, 'img'), dirs_exist_ok=True)
+        shutil.copytree(os.path.join(ROOT, 'site', 'fonts'), os.path.join(p, 'fonts'), dirs_exist_ok=True)
         css = '\n'.join(open(os.path.join(ROOT, f), encoding='utf-8').read()
                          for f in ('src/base.css', 'src/motion.css', 'src/screens.css'))
         open(os.path.join(p, 'styles.css'), 'w', encoding='utf-8').write(css)
         shutil.copy(os.path.join(ROOT, 'src/app.js'), os.path.join(p, 'app.js'))
-    for slug, tpl, title, desc, nav, ctx in PAGES:
-        case = None
-        if tpl == 'case.html':
-            case = CASES[slug.replace('keys-', '')]
-        page = dict(slug=slug, title=title, desc=desc, nav=nav, ctx=ctx, case=case)
-        t = env.get_template('pages/' + tpl)
-        for out, fragment in (('dist', slug == 'index'), ('preview', False)):
-            html = t.render(page=page, fragment=fragment, ver=ver)
-            html = re.sub(r'\n{3,}', '\n\n', html)
-            open(os.path.join(ROOT, out, slug + '.html'), 'w', encoding='utf-8').write(html)
+    for lang, _ in LANGS:
+        DICTS[lang] = load_dict(lang)
+    missing = {l: set() for l, _ in LANGS}
+    for lang, prefix in LANGS:
+        CUR['lang'] = lang
+        for out in ('dist', 'preview'):
+            os.makedirs(os.path.join(ROOT, out, prefix), exist_ok=True)
+        for slug, tpl, title, desc, nav, ctx in PAGES:
+            case = None
+            if tpl == 'case.html':
+                case = CASES[slug.replace('keys-', '')]
+            # ссылки на эту же страницу на других языках
+            up = '../' if prefix else ''
+            alt = {l: up + p + slug + '.html' for l, p in LANGS}
+            page = dict(slug=slug, title=title, desc=desc, nav=nav, ctx=ctx, case=case,
+                        lang=lang, alt=alt, langs=[(l, LANG_META[l]) for l, _ in LANGS], meta=LANG_META[lang])
+            t = env.get_template('pages/' + tpl)
+            for out, fragment in (('dist', slug == 'index' and lang == 'ru'), ('preview', False)):
+                html = t.render(page=page, fragment=fragment, ver=ver)
+                html = re.sub(r'\n{3,}', '\n\n', html)
+                if lang != 'ru':
+                    html = translate_html(html, lang, missing[lang])
+                open(os.path.join(ROOT, out, prefix + slug + '.html'), 'w', encoding='utf-8').write(html)
+    CUR['lang'] = 'ru'
+    for lang, ms in missing.items():
+        mp = os.path.join(ROOT, 'i18n', f'_missing-{lang}.txt')
+        if ms:
+            os.makedirs(os.path.dirname(mp), exist_ok=True)
+            open(mp, 'w', encoding='utf-8').write('\n'.join(sorted(ms)) + '\n')
+            print(f'! {lang}: нет перевода для {len(ms)} строк — список в i18n/_missing-{lang}.txt')
+        elif os.path.exists(mp):
+            open(mp, 'w', encoding='utf-8').write('')
     print('built', ver, [p[0] for p in PAGES])
 
 

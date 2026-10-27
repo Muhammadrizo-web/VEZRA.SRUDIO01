@@ -4,146 +4,180 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Сайты для кафе и ресторанов — Vezra Studio</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Сайт кафе или ресторана: лендинг за 1–3 дня, сайт для сети за 3–6 дней. Меню с ценами, фото, маршрут и бронь в Telegram.">
 <meta property="og:title" content="Сайты для кафе и ресторанов — Vezra Studio">
 <meta property="og:description" content="Сайт кафе или ресторана: лендинг за 1–3 дня, сайт для сети за 3–6 дней. Меню с ценами, фото, маршрут и бронь в Telegram.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta name="theme-color" content="#0D3B28">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230D3B28'/%3E%3Cpath d='M18 18h8l6 20 6-20h8L36 46h-8z' fill='%23fff'/%3E%3Ccircle cx='47' cy='45' r='4' fill='%23C96442'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=3e6cb689">
-<script>document.documentElement.classList.add('js');</script>
+<link rel="alternate" hreflang="ru" href="kafe-restorany.html">
+<link rel="alternate" hreflang="en" href="en/kafe-restorany.html">
+<link rel="alternate" hreflang="uz" href="uz/kafe-restorany.html">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:image" content="img/logo.svg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/unbounded-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=fd38d7eb">
+<script>document.documentElement.className+=' js'+(matchMedia('(prefers-reduced-motion: reduce)').matches?'':' anim');</script>
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
 <header class="hdr" id="top">
-  <div class="wrap">
-    <div class="hdr-row">
-      <a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><b>VEZRA</b><span>STUDIO</span></a>
-      <nav class="nav" aria-label="Основное меню">
-        <a href="keysy.html">Кейсы</a>
-        <a href="index.html#services">Услуги</a>
-        <a href="kliniki.html">Клиникам</a>
-        <a href="kafe-restorany.html" aria-current="page">Кафе и ресторанам</a>
-        <a href="o-studii.html">О студии</a>
-      </nav>
-      <a class="btn btn-green btn-sm btn-hdr" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
-      <div class="hdr-mob">
-        <a class="round fill tg-pill" aria-label="Написать в Telegram" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg><span>Написать</span></a>
-        <button class="round burger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><i></i><i></i></button>
-      </div>
-    </div>
-    <nav class="mnav" id="mnav" hidden aria-label="Мобильное меню">
-      <a href="index.html">Главная</a>
-      <a href="keysy.html">Кейсы</a>
+  <div class="wrap hdr-row">
+    <a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><img src="img/logo.svg" alt="Vezra Studio" width="136" height="40"></a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="keysy.html">Работы</a>
       <a href="index.html#services">Услуги</a>
       <a href="kliniki.html">Клиникам</a>
       <a href="kafe-restorany.html" aria-current="page">Кафе и ресторанам</a>
       <a href="o-studii.html">О студии</a>
-      <a class="btn btn-green" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
     </nav>
+    <nav class="langs" aria-label="Язык сайта"><a href="kafe-restorany.html" hreflang="ru" lang="ru" aria-current="true" title="Русский">RU</a><a href="en/kafe-restorany.html" hreflang="en" lang="en" title="English">EN</a><a href="uz/kafe-restorany.html" hreflang="uz" lang="uz" title="O‘zbekcha">UZ</a></nav>
+    <a class="btn btn-primary btn-sm hdr-cta" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+    <a class="hdr-tg" aria-label="Написать в Telegram" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg></a>
+    <button class="burger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><i></i><i></i></button>
   </div>
-  <span class="hdr-progress" aria-hidden="true"></span>
+  <nav class="mnav" id="mnav" hidden aria-label="Мобильное меню">
+    <div class="wrap">
+      <a href="index.html">Главная</a>
+      <a href="keysy.html">Работы</a>
+      <a href="index.html#services">Услуги</a>
+      <a href="kliniki.html">Клиникам</a>
+      <a href="kafe-restorany.html" aria-current="page">Кафе и ресторанам</a>
+      <a href="o-studii.html">О студии</a>
+      <div class="mnav-foot">
+        <nav class="langs langs-mob" aria-label="Язык сайта"><a href="kafe-restorany.html" hreflang="ru" lang="ru" aria-current="true">Русский</a><a href="en/kafe-restorany.html" hreflang="en" lang="en">English</a><a href="uz/kafe-restorany.html" hreflang="uz" lang="uz">O‘zbekcha</a></nav>
+        <a class="btn btn-primary btn-lg" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+<a class="tel" href="tel:+998952521117"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h3.2l1.6 4-2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2 4 1.6v3.2a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 6.1A1.5 1.5 0 0 1 5 4.5Z"/></svg>+998 95 252 11 17</a>      </div>
+    </div>
+  </nav>
 </header>
 <main id="main">
-<section class="phero screen">
+<section class="phead">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Сайты для кафе и ресторанов</span></nav>
-    <div class="phero-grid">
-      <div data-in="1"><div class="kicker">Для кафе и ресторанов</div><h1>Сайт кафе, где гость сразу видит <em>меню, адрес и бронь</em></h1><p class="sub">Гость выбирает заведение с телефона, часто по пути. Ему нужны меню с ценами, фото зала и маршрут — без PDF и поиска по сторис.</p>
-        <div class="cta-row"><a class="btn btn-green" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Обсудить сайт заведения</a></div>
-        <div class="reply"><i></i>Отвечаем в течение часа в рабочее время</div></div>
-      <div class="mini-terms" data-in="3">
-  <div class="dots-dark"><small>Лендинг</small><b><span data-roll>1–3</span> <i>дня</i></b></div>
-  <div class="dots-dark"><small>Сайт</small><b><span data-roll>3–6</span> <i>дней</i></b></div>
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span>Сайты для кафе и ресторанов</span></nav>
+    <h1 class="h-xl">Сайт кафе, где гость сразу видит меню, адрес и бронь</h1>
+<p class="sub">Гость выбирает заведение с телефона, часто по дороге. Ему нужны меню с ценами, фото зала и маршрут, а не PDF и поиск по сторис.</p><div class="cta-row"><a class="btn btn-primary" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Обсудить сайт заведения</a><span class="reply"><i></i>Отвечаем в течение часа</span></div>  </div>
+</section>
+
+<section class="sec-flush"><div class="wrap"><div class="terms">
+  <div><span>Лендинг</span><b>1–3 дня</b></div>
+  <div><span>Корпоративный сайт</span><b>3–6 дней</b></div>
+  <div><span>Просрочка по нашей вине</span><b>−10% в день</b></div>
 </div>
-    </div>
-  </div>
-</section>
-<section class="sec-tight screen">
+</div></section>
+
+<section class="sec">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Структура</div><h2 data-reveal>Пять вещей, которые гость ищет на сайте кафе</h2></div><p class="lead">Всё это есть в структуре по умолчанию. Остальное добавляем под ваше заведение.</p></div>
-    <div class="checks lane" data-stagger><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg></span><h3>Меню с ценами</h3><p>Текстом, а не PDF: <b>открывается быстро и читается с телефона.</b></p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-2.5h6L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><h3>Фото зала и блюд</h3><p>Гость приходит за атмосферой. Покажите её до визита.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Адрес, маршрут, часы</h3><p>Кнопка маршрута и часы работы на первом экране.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Бронь и банкет</h3><p>Бронь стола и заявка на мероприятие через Telegram или телефон.</p></div><div class="check"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><h3>Доставка</h3><p>Ссылки на службы доставки, с которыми вы уже работаете.</p></div><div class="check cta dots-dark"><div><h3>Несколько заведений?</h3><p style="margin-top:12px">Общий сайт с отдельной страницей для каждой точки — обсудим в Telegram.</p></div><div><a class="btn btn-white btn-sm" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать</a></div></div></div>
+    <div class="sec-head">
+      <h2 class="h-l">Что гость ищет на сайте кафе</h2>
+      <p class="lead">Всё это заложено в структуру с самого начала. Остальное добавляем под ваше заведение.</p>
+    </div>
+    <ul class="checks">
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg><div><h3>Меню с ценами</h3><p>Текстом, а не PDF: открывается быстро и удобно читается с телефона.</p></div></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-2.5h6L17 8h4v11H3z"/><circle cx="12" cy="13.5" r="3.5"/></svg><div><h3>Фото зала и блюд</h3><p>Гость приходит за атмосферой. Покажите её до визита.</p></div></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><h3>Адрес, маршрут, часы</h3><p>Кнопка маршрута и часы работы на первом экране.</p></div></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><div><h3>Бронь и банкет</h3><p>Бронь стола и заявка на мероприятие через Telegram или по телефону.</p></div></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><div><h3>Доставка</h3><p>Ссылки на службы доставки, с которыми вы уже работаете.</p></div></li>
+      <li class="checks-cta"><div><h3>Несколько заведений?</h3><p>Общий сайт с отдельной страницей для каждой точки.</p></div><a class="btn btn-light btn-sm" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Обсудить</a></li>
+    </ul>
   </div>
 </section>
-<section class="sec-tight screen">
+
+<section class="sec sec-soft">
   <div class="wrap concept">
-    <div class="mock" data-reveal role="img" aria-label="Концепт сайта кофейни">
-  <div class="bar"><i></i><i></i><i></i><u>кофейня.uz</u></div>
-  <div class="mk cafe">
-    <div class="mk-top"><span>Кофейня · концепт</span><nav><span>Меню</span><span>О нас</span><span>Банкеты</span><span>Контакты</span></nav><span class="mb">Маршрут</span></div>
-    <div class="mk-hero"><div><h4>Кофе и завтраки до полудня</h4><p>Открыто сегодня · адрес на карте</p><span class="mb">Забронировать стол</span></div><div class="mk-img"></div></div>
-    <div class="mk-h">Меню</div>
-    <div class="mk-tabs"><span>Кофе</span><span>Завтраки</span><span>Десерты</span></div>
-    <div class="mk-row">
-      <div class="mk-card"><div class="av"></div><b>Капучино</b><span>28 000 сум</span></div>
-      <div class="mk-card"><div class="av"></div><b>Сырники</b><span>45 000 сум</span></div>
-      <div class="mk-card"><div class="av"></div><b>Чизкейк</b><span>39 000 сум</span></div>
-    </div>
-  </div>
-</div>
-    <div><span class="badge">Концепт</span><h2 data-reveal>Так может выглядеть сайт кофейни</h2><p>Сайтов для кафе в нашем портфолио пока нет, поэтому показываем концепт: меню и цены — пример. Айдентику для заведений мы уже делали — она ниже.</p></div>
-  </div>
-</section>
-<section class="sec-tight screen">
-  <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Уже в HoReCa</div><h2 data-reveal>Айдентика, которую мы сделали <em>для заведений</em></h2></div></div>
-    <div class="brands2 lane" data-stagger>
-      <article class="brand-card"><div class="brand-ph">MATA<br>COFFEE</div><div><div class="niche">Кофейня</div><h3>MATA Coffee</h3><p>Удобная современная кофейня, которая делает ставку на качество. Сделали логотип.</p></div></article>
-      <article class="brand-card"><div class="brand-ph">RETRO<br>90</div><div><div class="niche">Ресторан</div><h3>Retro 90</h3><p>Ресторан европейской и ретро-кухни. Сделали логотип.</p></div></article>
-    </div>
-  </div>
-</section>
-<section class="sec-tight screen">
-  <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Состав сайта</div><h2 data-reveal>Пять страниц, <em>которых хватает</em></h2></div><p class="lead">Одному заведению часто хватает лендинга — 1–3 дня. Сайт для сети — 3–6 дней.</p></div>
-    <div class="pages" data-stagger><div><b>Главная</b><span>Атмосфера, меню, адрес</span></div><div><b>Меню</b><span>По категориям, с ценами</span></div><div><b>О заведении</b><span>Фото зала и команды</span></div><div><b>Банкеты</b><span>Мероприятия и заявка</span></div><div><b>Контакты</b><span>Карта, часы, бронь</span></div></div>
-  </div>
-</section>
-<section class="sec-tight screen" id="guarantee">
-  <div class="wrap">
-    <div class="guar dots-dark" data-spot>
-      <div class="kicker">Гарантия</div>
-      <h2 data-reveal>Срок — это обещание. Поэтому мы пишем его <em>в договор.</em></h2>
-      <div class="g-grid lane" data-stagger>
-        <div class="g-item g-main"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><h3>Сорвали срок&nbsp;— минус 10% в&nbsp;день</h3><p>За каждый день задержки по нашей вине стоимость снижается на 10%, максимум на 30%. Это пункт договора.</p>
-          <div class="g-scale" aria-label="Скидка за просрочку"><span><small>1 день</small><b>−10%</b></span><span><small>2 дня</small><b>−20%</b></span><span><small>3+ дня</small><b>−30%</b></span></div></div>
-        <div class="g-item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5v6h-6"/></svg></div><h3>Доработки бесплатно</h3><p>Доводим сайт до согласованного результата без доплат.</p></div>
-        <div class="g-item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Не обещаем лишнего</h3><p>Если задачу нельзя сделать в срок, скажем это до договора, а не после.</p></div>
+    <div class="mock" role="img" aria-label="Пример сайта кофейни">
+      <div class="bar"><i></i><i></i><i></i><u>coffee.uz</u></div>
+      <div class="mk cafe">
+        <div class="mk-top"><b>Coffee</b><nav><span>Меню</span><span>О нас</span><span>Банкеты</span><span>Контакты</span></nav><span class="mb">Маршрут</span></div>
+        <div class="mk-hero"><div><h4>Кофе и завтраки до полудня</h4><p>Открыто сегодня до 23:00</p><span class="mb">Забронировать стол</span></div><div class="mk-img"></div></div>
+        <div class="mk-h">Меню</div>
+        <div class="mk-tabs"><span>Кофе</span><span>Завтраки</span><span>Десерты</span></div>
+        <div class="mk-row">
+          <div class="mk-card"><div class="av"></div><b>Капучино</b><span>28 000 сум</span></div>
+          <div class="mk-card"><div class="av"></div><b>Сырники</b><span>45 000 сум</span></div>
+          <div class="mk-card"><div class="av"></div><b>Чизкейк</b><span>39 000 сум</span></div>
+        </div>
       </div>
-      <div class="g-note">Срок отсчитывается с дня, когда у нас все материалы: тексты, фото, логотип, доступы.</div>
+    </div>
+    <div class="concept-copy">
+      <span class="badge">Пример структуры</span>
+      <h2 class="h-l">Так может выглядеть сайт кофейни</h2>
+      <p>Меню, часы работы и бронь на первом экране. Позиции и цены здесь условные: на вашем сайте будет ваше меню.</p>
     </div>
   </div>
-</section><section class="sec-tight screen final-screen">
+</section>
+
+<section class="sec">
   <div class="wrap">
-    <div class="final-card dots-dark" id="contact" data-spot>
-      <h2 data-reveal>Расскажите о заведении&nbsp;— назовём <em>срок и цену.</em></h2>
-      <div class="final-side" data-reveal>
-        <p>Пришлите ссылку на ваш Instagram или текущий сайт — в ответ назовём срок и цену. Проект-менеджер отвечает в течение часа.</p>
-        <a class="btn btn-white" href="#contact" data-tg="pending"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+    <div class="sec-head"><h2 class="h-l">Айдентика для заведений</h2><p class="lead">Знаки, которые мы сделали для кафе и ресторанов.</p></div>
+    <div class="brand-pair">
+<article class="work work-brand"><div class="mark"><span>MATA Coffee</span></div><div class="work-meta"><p class="niche">Кофейня<span class="tag">Логотип</span></p><h3 class="h-s">MATA Coffee</h3><p>Современная кофейня, которая делает ставку на качество.</p></div></article>
+<article class="work work-brand"><div class="mark"><span>Retro 90</span></div><div class="work-meta"><p class="niche">Ресторан<span class="tag">Логотип</span></p><h3 class="h-s">Retro 90</h3><p>Ресторан европейской и ретро-кухни.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-l">Из чего состоит сайт</h2>
+      <p class="lead">Одному заведению часто хватает лендинга: 1–3 дня. Сайт для сети делаем за 3–6 дней.</p>
+    </div>
+    <ol class="pages">
+      <li><b>Главная</b><span>Атмосфера, меню, адрес</span></li>
+      <li><b>Меню</b><span>По категориям, с ценами</span></li>
+      <li><b>О заведении</b><span>Фото зала и команды</span></li>
+      <li><b>Банкеты</b><span>Мероприятия и заявка</span></li>
+      <li><b>Контакты</b><span>Карта, часы, бронь</span></li>
+    </ol>
+  </div>
+</section>
+<section class="guar" id="guarantee">
+  <div class="wrap guar-grid">
+    <div class="guar-copy">
+      <h2 class="h-l">Опоздаем&nbsp;— заплатите меньше</h2>
+      <p>Срок прописываем в договоре. За каждый день просрочки по нашей вине стоимость снижается на 10%, максимум на 30%.</p>
+      <ul class="guar-pts">
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5v6h-6"/></svg><span>Доработки до согласованного результата бесплатно</span></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Срок идёт с дня, когда у нас все материалы: тексты, фото, логотип, доступы</span></li>
+      </ul>
+    </div>
+    <div class="price-bars" data-bars role="img" aria-label="Стоимость проекта: в срок 100%, через день 90%, через два дня 80%, через три дня и больше 70%">
+      <div class="pb" style="--w:100%;--i:0"><span>В срок</span><i><b>100%</b></i></div>
+      <div class="pb" style="--w:90%;--i:1"><span>+1 день</span><i><b>90%</b></i></div>
+      <div class="pb" style="--w:80%;--i:2"><span>+2 дня</span><i><b>80%</b></i></div>
+      <div class="pb" style="--w:70%;--i:3"><span>+3 дня и больше</span><i><b>70%</b></i></div>
+      <p class="pb-cap">Сколько вы платите от цены по договору</p>
+    </div>
+  </div>
+</section><section class="final" id="contact">
+  <div class="wrap">
+    <div class="final-in">
+      <h2>Расскажите о&nbsp;заведении</h2>
+      <p>Ответим в течение часа: уточним задачу, назовём срок и цену. Можно просто прислать ссылку на ваш Instagram или текущий сайт.</p>
+      <div class="final-act">
+        <a class="btn btn-light btn-lg" href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5Zm-3.5 3.6-8.6 7.8-.3 3.6-1.5-4.7 10-6.3c.5-.3.8 0 .4.4Z"/></svg>Написать в Telegram</a>
+        <div class="final-alt"><button type="button" class="copy" data-copy="@Vezrastudio" aria-label="Скопировать ник @Vezrastudio"><span>@Vezrastudio</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg><em>Скопировано</em></button><a class="tel" href="tel:+998952521117"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h3.2l1.6 4-2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2 4 1.6v3.2a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 6.1A1.5 1.5 0 0 1 5 4.5Z"/></svg>+998 95 252 11 17</a></div>
       </div>
     </div>
   </div>
 </section>
 
 </main>
-<footer>
+<footer class="ftr">
   <div class="wrap">
     <div class="f-top">
-      <div><a class="logo" href="index.html"><b>VEZRA</b><span>STUDIO</span></a><p>Сайты, брендинг и контент для бизнеса в Узбекистане.</p></div>
-      <div class="f-col"><h4>Студия</h4><a href="keysy.html">Кейсы</a><a href="index.html#services">Услуги</a><a href="o-studii.html">О студии</a><a href="o-studii.html#process">Как работаем</a></div>
-      <div class="f-col"><h4>Направления</h4><a href="kliniki.html">Сайты для клиник</a><a href="kafe-restorany.html">Сайты для кафе и ресторанов</a></div>
+      <div class="f-brand"><a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><img src="img/logo.svg" alt="Vezra Studio" width="150" height="44" loading="lazy"></a><p>Сайты, брендинг и контент для бизнеса в Узбекистане.</p></div>
+      <nav class="f-col" aria-label="Студия"><h4>Студия</h4><a href="keysy.html">Работы</a><a href="index.html#services">Услуги</a><a href="o-studii.html">О студии</a><a href="o-studii.html#process">Как работаем</a></nav>
+      <nav class="f-col" aria-label="Направления"><h4>Направления</h4><a href="kliniki.html">Сайты для клиник</a><a href="kafe-restorany.html">Сайты для кафе и ресторанов</a></nav>
       <div class="f-col"><h4>Связь</h4>
-        <a href="https://instagram.com/vezra_studio" target="_blank" rel="noopener">Instagram @vezra_studio</a>
+<a href="https://t.me/Vezrastudio?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" data-tg="cafe">Telegram @Vezrastudio</a><a href="tel:+998952521117">+998 95 252 11 17</a>        <a href="https://instagram.com/vezra_studio" target="_blank" rel="noopener">Instagram @vezra_studio</a>
       </div>
     </div>
-    <div class="f-bot"><span>© 2025–2026 Vezra Studio · Ташкент</span><span>Отвечаем в течение часа в рабочее время</span></div>
+    <div class="f-bot"><span>© 2025–2026 Vezra Studio, Ташкент</span><a href="#top">Наверх</a></div>
   </div>
 </footer>
-<script src="app.js?v=3e6cb689" defer></script>
+<script src="app.js?v=fd38d7eb" defer></script>
 </body>
 </html>

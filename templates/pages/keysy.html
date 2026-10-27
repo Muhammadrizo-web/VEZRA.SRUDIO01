@@ -1,45 +1,39 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as m %}
 {% block main %}
-<section class="phero screen works-screen">
+<section class="phead">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Кейсы</span></nav>
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span>Работы</span></nav>
     <div class="works-head">
       <div>
-        <div class="kicker" data-in="1">Кейсы</div>
-        <h1 data-in="2">Что мы уже сделали</h1>
-        <p class="sub" data-in="3">3 сайта и 9 брендов. Показываем задачу, решение и срок. Цифры роста добавим, когда клиенты их подтвердят.</p>
+        <h1 class="h-xl">Работы</h1>
+        <p class="sub">Сайты, редизайн интерфейсов и фирменные знаки. По каждому сайту показываем задачу, решение и срок.</p>
       </div>
-      <div class="filters" role="group" aria-label="Фильтр кейсов" data-in="4">
-        <button type="button" data-filter="all" aria-pressed="true">Все <span>12</span></button>
-        <button type="button" data-filter="web" aria-pressed="false">Сайты <span>3</span></button>
-        <button type="button" data-filter="brand" aria-pressed="false">Брендинг <span>9</span></button>
-      </div>
-    </div>
-    <div class="slider works-slider" data-slider>
-      <div class="work-grid lane" data-in="5">
-        {% for key in ['samarcande', 'maxipharm', 'xizmattop'] %}{% set c = CASES[key] %}
-        <a class="work" href="{{ c.slug }}.html" data-type="web" data-case data-cursor="Смотреть">
-          {% if c.img %}{{ m.shot(c.img ~ '-hero.webp', 'Сайт ' ~ c.title, host=c.hostname, w=1440, h=900, eager=True) }}{% else %}{{ m.cover(c, host=c.hostname) }}{% endif %}
-          <div><div class="type"><span class="niche">{{ c.niche.split(' · ')[0] }}</span><span class="tag web">{{ 'Редизайн' if key == 'xizmattop' else 'Сайт' }}</span></div><h3>{{ c.title }}</h3><p>{{ c.lead }}</p></div>
-        </a>
-        {% endfor %}
-        {% for b in D.brands %}
-        <article class="work" data-type="brand">
-          <div class="lg{% if b.logo %} has-logo{% endif %}">{% if b.logo %}<img src="img/{{ b.logo }}" alt="Логотип {{ b.title }}" loading="lazy">{% else %}<div class="wordmark">{{ b.name }}</div>{% endif %}</div>
-          <div><div class="type"><span class="niche">{{ b.niche }}</span><span class="tag">{{ b.tag }}</span></div><h3>{{ b.title }}</h3></div>
-        </article>
-        {% endfor %}
-      </div>
-      <div class="slider-foot">
-        <div class="slider-nav">
-          <button type="button" class="round" data-prev aria-label="Назад">{{ icon('arrow') }}</button>
-          <span class="slider-count" aria-live="polite"><b data-current>01</b> / <span data-total>12</span></span>
-          <button type="button" class="round" data-next aria-label="Вперёд">{{ icon('arrow') }}</button>
-        </div>
+      <div class="filters" role="group" aria-label="Фильтр работ">
+        <button type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button type="button" data-filter="web" aria-pressed="false">Сайты</button>
+        <button type="button" data-filter="brand" aria-pressed="false">Брендинг</button>
       </div>
     </div>
   </div>
 </section>
-{{ m.final_card('Хотите так же? <em>Напишите нам.</em>', page.ctx) }}
+<section class="sec-flush">
+  <div class="wrap">
+    <div class="work-grid">
+      {% for key in ['samarcande', 'maxipharm', 'xizmattop'] %}{% set c = CASES[key] %}
+      <a class="work work-web" href="{{ c.slug }}.html" data-type="web">
+        {% if c.img %}{{ m.shot(c.img ~ '-hero.webp', 'Сайт ' ~ c.title, host=c.hostname, w=1440, h=900, eager=loop.first) }}{% else %}{{ m.cover(c, host=c.hostname) }}{% endif %}
+        <div class="work-meta"><p class="niche">{{ c.niche.split(' · ')[0] }}<span class="tag">{{ 'Редизайн' if key == 'xizmattop' else 'Сайт' }}</span></p><h3 class="h-s">{{ c.title }}</h3><p>{{ c.lead }}</p></div>
+      </a>
+      {% endfor %}
+      {% for b in D.brands %}
+      <article class="work work-brand" data-type="brand">
+        <div class="mark{% if b.logo %} has-logo{% endif %}">{% if b.logo %}<img src="img/{{ b.logo }}" alt="Логотип {{ b.title }}" loading="lazy">{% else %}<span>{{ b.title }}</span>{% endif %}</div>
+        <div class="work-meta"><p class="niche">{{ b.niche }}<span class="tag">{{ b.tag }}</span></p><h3 class="h-s">{{ b.title }}</h3></div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{{ m.final_card('Нужен такой же результат?', page.ctx) }}
 {% endblock %}

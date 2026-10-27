@@ -1,74 +1,77 @@
 {% if not fragment %}<!doctype html>
-<html lang="ru">
+<html lang="{{ page.lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 {% endif %}
 <title>{{ page.title }}</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="{{ page.desc }}">
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:description" content="{{ page.desc }}">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="ru_RU">
-<meta name="theme-color" content="#0D3B28">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230D3B28'/%3E%3Cpath d='M18 18h8l6 20 6-20h8L36 46h-8z' fill='%23fff'/%3E%3Ccircle cx='47' cy='45' r='4' fill='%23C96442'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<meta property="og:locale" content="{{ page.meta.locale }}">
+{% for l, mt in page.langs %}<link rel="alternate" hreflang="{{ l }}" href="{{ page.alt[l] }}">
+{% endfor %}
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:image" content="img/logo.svg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/unbounded-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v={{ ver }}">
-<script>document.documentElement.classList.add('js');</script>
+<script>document.documentElement.className+=' js'+(matchMedia('(prefers-reduced-motion: reduce)').matches?'':' anim');</script>
 {% if not fragment %}
 </head>
 <body>
 {% endif %}
 <a class="skip" href="#main">К содержанию</a>
 <header class="hdr" id="top">
-  <div class="wrap">
-    <div class="hdr-row">
-      <a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><b>VEZRA</b><span>STUDIO</span></a>
-      <nav class="nav" aria-label="Основное меню">
-        <a href="keysy.html"{% if page.nav == 'cases' %} aria-current="page"{% endif %}>Кейсы</a>
-        <a href="index.html#services">Услуги</a>
-        <a href="kliniki.html"{% if page.nav == 'clinics' %} aria-current="page"{% endif %}>Клиникам</a>
-        <a href="kafe-restorany.html"{% if page.nav == 'cafe' %} aria-current="page"{% endif %}>Кафе и ресторанам</a>
-        <a href="o-studii.html"{% if page.nav == 'about' %} aria-current="page"{% endif %}>О студии</a>
-      </nav>
-      <a class="btn btn-green btn-sm btn-hdr" {{ tg(page.ctx) }}>{{ icon('tg') }}Написать в Telegram</a>
-      <div class="hdr-mob">
-        <a class="round fill tg-pill" aria-label="Написать в Telegram" {{ tg(page.ctx) }}>{{ icon('tg') }}<span>Написать</span></a>
-        <button class="round burger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><i></i><i></i></button>
-      </div>
-    </div>
-    <nav class="mnav" id="mnav" hidden aria-label="Мобильное меню">
-      <a href="index.html"{% if page.nav == 'home' %} aria-current="page"{% endif %}>Главная</a>
-      <a href="keysy.html"{% if page.nav == 'cases' %} aria-current="page"{% endif %}>Кейсы</a>
+  <div class="wrap hdr-row">
+    <a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><img src="img/logo.svg" alt="Vezra Studio" width="136" height="40"></a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="keysy.html"{% if page.nav == 'cases' %} aria-current="page"{% endif %}>Работы</a>
       <a href="index.html#services">Услуги</a>
       <a href="kliniki.html"{% if page.nav == 'clinics' %} aria-current="page"{% endif %}>Клиникам</a>
       <a href="kafe-restorany.html"{% if page.nav == 'cafe' %} aria-current="page"{% endif %}>Кафе и ресторанам</a>
       <a href="o-studii.html"{% if page.nav == 'about' %} aria-current="page"{% endif %}>О студии</a>
-      <a class="btn btn-green" {{ tg(page.ctx) }}>{{ icon('tg') }}Написать в Telegram</a>
     </nav>
+    <nav class="langs" aria-label="Язык сайта">{% for l, mt in page.langs %}<a href="{{ page.alt[l] }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == page.lang %} aria-current="true"{% endif %} title="{{ mt.label }}">{{ mt.name }}</a>{% endfor %}</nav>
+    <a class="btn btn-primary btn-sm hdr-cta" {{ tg(page.ctx) }}>{{ icon(CH_ICON) }}Написать в {{ CH }}</a>
+    <a class="hdr-tg" aria-label="Написать в {{ CH }}" {{ tg(page.ctx) }}>{{ icon(CH_ICON) }}</a>
+    <button class="burger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><i></i><i></i></button>
   </div>
-  <span class="hdr-progress" aria-hidden="true"></span>
+  <nav class="mnav" id="mnav" hidden aria-label="Мобильное меню">
+    <div class="wrap">
+      <a href="index.html"{% if page.nav == 'home' %} aria-current="page"{% endif %}>Главная</a>
+      <a href="keysy.html"{% if page.nav == 'cases' %} aria-current="page"{% endif %}>Работы</a>
+      <a href="index.html#services">Услуги</a>
+      <a href="kliniki.html"{% if page.nav == 'clinics' %} aria-current="page"{% endif %}>Клиникам</a>
+      <a href="kafe-restorany.html"{% if page.nav == 'cafe' %} aria-current="page"{% endif %}>Кафе и ресторанам</a>
+      <a href="o-studii.html"{% if page.nav == 'about' %} aria-current="page"{% endif %}>О студии</a>
+      <div class="mnav-foot">
+        <nav class="langs langs-mob" aria-label="Язык сайта">{% for l, mt in page.langs %}<a href="{{ page.alt[l] }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == page.lang %} aria-current="true"{% endif %}>{{ mt.label }}</a>{% endfor %}</nav>
+        <a class="btn btn-primary btn-lg" {{ tg(page.ctx) }}>{{ icon(CH_ICON) }}Написать в {{ CH }}</a>
+        {% if S.phone %}<a class="tel" href="tel:{{ S.phone | replace(' ', '') }}">{{ icon('phone') }}{{ S.phone }}</a>{% endif %}
+      </div>
+    </div>
+  </nav>
 </header>
 <main id="main">
 {% block main %}{% endblock %}
 </main>
-<footer>
+<footer class="ftr">
   <div class="wrap">
     <div class="f-top">
-      <div><a class="logo" href="index.html"><b>VEZRA</b><span>STUDIO</span></a><p>Сайты, брендинг и контент для бизнеса в Узбекистане.</p></div>
-      <div class="f-col"><h4>Студия</h4><a href="keysy.html">Кейсы</a><a href="index.html#services">Услуги</a><a href="o-studii.html">О студии</a><a href="o-studii.html#process">Как работаем</a></div>
-      <div class="f-col"><h4>Направления</h4><a href="kliniki.html">Сайты для клиник</a><a href="kafe-restorany.html">Сайты для кафе и ресторанов</a></div>
+      <div class="f-brand"><a class="logo" href="index.html" aria-label="Vezra Studio — на главную"><img src="img/logo.svg" alt="Vezra Studio" width="150" height="44" loading="lazy"></a><p>Сайты, брендинг и контент для бизнеса в Узбекистане.</p></div>
+      <nav class="f-col" aria-label="Студия"><h4>Студия</h4><a href="keysy.html">Работы</a><a href="index.html#services">Услуги</a><a href="o-studii.html">О студии</a><a href="o-studii.html#process">Как работаем</a></nav>
+      <nav class="f-col" aria-label="Направления"><h4>Направления</h4><a href="kliniki.html">Сайты для клиник</a><a href="kafe-restorany.html">Сайты для кафе и ресторанов</a></nav>
       <div class="f-col"><h4>Связь</h4>
         {% if tg_handle() %}<a {{ tg(page.ctx) }}>Telegram {{ tg_handle() }}</a>{% endif %}
+        {% if S.phone %}<a href="tel:{{ S.phone | replace(' ', '') }}">{{ S.phone }}</a>{% endif %}
         <a href="https://instagram.com/{{ S.instagram }}" target="_blank" rel="noopener">Instagram @{{ S.instagram }}</a>
-        {% if S.phone %}<span class="sel">{{ S.phone }}</span>{% endif %}
-        {% if S.email %}<span class="sel">{{ S.email }}</span>{% endif %}
+        {% if S.email %}<a href="mailto:{{ S.email }}">{{ S.email }}</a>{% endif %}
       </div>
     </div>
-    <div class="f-bot"><span>© {{ S.since }}–2026 Vezra Studio · {{ S.city }}</span><span>Отвечаем в течение часа {{ S.hours }}</span></div>
+    <div class="f-bot"><span>© {{ S.since }}–2026 Vezra Studio, {{ S.city }}</span><a href="#top">Наверх</a></div>
   </div>
 </footer>
 <script src="app.js?v={{ ver }}" defer></script>
